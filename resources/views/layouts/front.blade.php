@@ -1,133 +1,85 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Saka Pro</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="{{ asset('front/css/vendor.css') }}">
-    <link rel="stylesheet" href="{{ asset('front/css/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-
-    <!-- script
-    ================================================== -->
-    <script src="{{ asset('front/js/modernizr.js') }}"></script>
-    <script defer src="{{ asset('front/js/fontawesome/all.min.js') }}"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="{{ asset('front/site.webmanifest') }}">
-
+  <meta charset="utf-8">
+  <title>Cherub Apps – Strategic Advisory for Africa's Digital Future</title>
+  <meta name="description" content="We help organizations build resilient systems and scale across Africa.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ asset('css/cherub.css') }}">
+  <script defer src="{{ asset('front/js/fontawesome/all.min.js') }}"></script>
 </head>
+<body>
 
-<body id="top">
+<!-- HEADER -->
+<header class="ch-header">
+  <div class="ch-header__inner">
+    <a href="{{ route('home') }}" class="ch-logo">
+      <img src="{{ asset('images/cherub-logo.png') }}" alt="Cherub Apps" class="ch-logo__img">
+    </a>
 
+    <nav class="ch-nav">
+      <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+      <a href="{{ route('who-we-are') }}" class="{{ request()->routeIs('who-we-are') ? 'active' : '' }}">Who We Are</a>
+      <a href="{{ route('what-we-do') }}" class="{{ request()->routeIs('what-we-do') ? 'active' : '' }}">What We Do</a>
+      <a href="{{ route('insights') }}" class="{{ request()->routeIs('insights') ? 'active' : '' }}">Insights</a>
+      <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+      <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
+    </nav>
 
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader"></div>
+    <a href="#contact" class="ch-header__cta">Let's Talk</a>
+
+    <button class="ch-hamburger" id="ch-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="ch-mobile-nav" id="ch-mobile-nav">
+  <div class="ch-mobile-nav__top">
+    <a href="{{ route('home') }}" class="ch-logo">
+      <img src="{{ asset('images/cherub-logo.png') }}" alt="Cherub Apps" class="ch-logo__img">
+    </a>
+    <button class="ch-mobile-nav__close" id="ch-nav-close">&times;</button>
+  </div>
+  <ul>
+    <li><a href="{{ route('home') }}">Home</a></li>
+    <li><a href="{{ route('who-we-are') }}">Who We Are</a></li>
+    <li><a href="{{ route('what-we-do') }}">What We Do</a></li>
+    <li><a href="{{ route('insights') }}">Insights</a></li>
+    <li><a href="{{ route('about') }}">About</a></li>
+    <li><a href="{{ route('contact') }}">Contact</a></li>
+  </ul>
+  <div class="ch-mobile-nav__cta">
+    <a href="#contact" class="btn-primary">Let's Talk &rarr;</a>
+  </div>
+</div>
+
+@yield('content')
+
+<!-- FOOTER -->
+<footer class="ch-footer">
+  <div class="ch-footer__inner">
+    <a href="{{ route('home') }}" class="ch-footer__logo">
+      <img src="{{ asset('images/cherub-logo.png') }}" alt="Cherub Apps" class="ch-footer__logo-img">
+    </a>
+
+    <div class="ch-footer__links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Careers</a>
     </div>
 
+    <p class="ch-footer__copy">&copy; 2025 Cherub Apps Consult. All rights reserved.</p>
+  </div>
+</footer>
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="s-header__logo">
-            <a class="logo" href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.svg') }}" alt="Homepage">
-            </a>
-        </div>
-
-        <div class="row s-header__navigation">
-
-            <nav class="s-header__nav-wrap">
-
-                <h3 class="s-header__nav-heading h6">Navigate to</h3>
-
-                <ul class="s-header__nav">
-                    <li class="current"><a href="{{ route('home') }}" title="">Home</a></li>
-                    <li class="has-children">
-                        <a href="#0" title="">Categories</a>
-                        <ul class="sub-menu">
-                            @foreach ($categories as $cat)
-                                <li><a href="{{ route('categories.view', $cat->id) }}">{{ $cat->title }}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    @guest
-                        <li>
-                            <a href="{{ route('login') }}" title="">Sign In</a>
-                        </li>
-                    @endguest
-                    @auth
-                        <li>
-                            <a href="{{ route('dashboard') }}" title="">Dashboard</a>
-                        </li>
-                    @endauth
-                </ul> <!-- end s-header__nav -->
-
-                <a href="#0" title="Close Menu" class="s-header__overlay-close close-mobile-menu">Close</a>
-
-            </nav> <!-- end s-header__nav-wrap -->
-
-        </div> <!-- end s-header__navigation -->
-
-        <a class="s-header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
-
-    </header> <!-- end s-header -->
-
-    @yield('content')
-
-
-    <!-- footer
-    ================================================== -->
-    <footer class="s-footer">
-        <div class="s-footer__bottom">
-            <div class="row">
-                <div class="column">
-                    <div class="ss-copyright">
-                        <span>© Copyright Calvin 2020</span>
-                        <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
-                    </div> <!-- end ss-copyright -->
-                </div>
-            </div>
-
-            <div class="ss-go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top">
-                    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path
-                            d="M7.5 1.5l.354-.354L7.5.793l-.354.353.354.354zm-.354.354l4 4 .708-.708-4-4-.708.708zm0-.708l-4 4 .708.708 4-4-.708-.708zM7 1.5V14h1V1.5H7z"
-                            fill="currentColor"></path>
-                    </svg>
-                </a>
-            </div> <!-- end ss-go-top -->
-        </div> <!-- end s-footer__bottom -->
-
-    </footer> <!-- end s-footer -->
-
-
-    <!-- Java Script
-    ================================================== -->
-    <script src="{{ asset('front/js/jquery-3.5.0.min.js') }}"></script>
-    <script src="{{ asset('front/js/plugins.js') }}"></script>
-    <script src="{{ asset('front/js/main.js') }}"></script>
-
+<script>
+  var hamburger = document.getElementById('ch-hamburger');
+  var mobileNav = document.getElementById('ch-mobile-nav');
+  var navClose   = document.getElementById('ch-nav-close');
+  hamburger.addEventListener('click', function() { mobileNav.classList.add('open'); });
+  navClose.addEventListener('click',  function() { mobileNav.classList.remove('open'); });
+</script>
 </body>
-
 </html>
