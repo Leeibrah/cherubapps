@@ -57,6 +57,14 @@ class PageController extends Controller
         return redirect()->route('contact')->with('success', 'Thank you! We will get back to you within 24 hours.');
     }
 
+    public function privacy(){
+        return view('front.privacy');
+    }
+
+    public function terms(){
+        return view('front.terms');
+    }
+
     public function posts(){
         return view('posts.index');
     }
@@ -68,7 +76,7 @@ class PageController extends Controller
     }
 
     public function showCategory(Category $category){
-        $posts = $category->posts()->get();
+        $posts = $category->posts()->with('user', 'categories')->get();
         $categories = Category::all();
         return view('front.categories.show', compact('category', 'posts', 'categories'));
     }

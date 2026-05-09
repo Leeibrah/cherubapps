@@ -31,6 +31,8 @@ Route::post('/contact', 'PageController@sendContact')->name('contact.send');
 Route::get('/posts', 'PageController@posts')->name('posts');
 Route::get('/posts/{post}', 'PageController@showPost')->name('posts.view');
 Route::get('/category/{category}', 'PageController@showCategory')->name('categories.view');
+Route::get('/privacy-policy', 'PageController@privacy')->name('privacy');
+Route::get('/terms-of-use', 'PageController@terms')->name('terms');
 
 // admin pages
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {

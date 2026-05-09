@@ -1,70 +1,88 @@
-@extends('layouts.innerFront')
+@extends('layouts.front')
 @section('content')
-    <section class="s-content">
 
-        <div class="s-pageheader">
-            <div class="row">
-                <div class="column large-12">
-                    <h1 class="page-title">
-                        <span class="page-title__small-type">Category</span>
-                        {{ $category->title }}
-                    </h1>
-                </div>
+<!-- PAGE HERO -->
+<section class="ch-page-hero">
+  <div class="ch-page-hero__eyebrow"><span>Category</span></div>
+  <h1 class="ch-page-hero__title">{{ $category->title }}</h1>
+  <p class="ch-page-hero__desc">
+    Insights, perspectives and analysis filed under <strong style="color:#fff;">{{ $category->title }}</strong>
+    — from the Cherub Apps team.
+  </p>
+</section>
+
+<!-- POSTS GRID -->
+<section class="ch-insights-page">
+  <div class="ch-insights-page__inner">
+
+    <!-- Back link -->
+    <div style="margin-bottom:28px;">
+      <a href="{{ route('insights') }}" class="ch-link-arrow" style="font-size:13px;">&larr; All Insights</a>
+    </div>
+
+    @if($posts->isEmpty())
+      <div style="text-align:center;padding:64px 0;">
+        <div style="font-size:48px;color:var(--border);margin-bottom:16px;"><i class="fas fa-newspaper"></i></div>
+        <p style="font-size:16px;color:var(--text-muted);">No posts in this category yet.</p>
+        <a href="{{ route('insights') }}" class="btn-primary" style="margin-top:20px;display:inline-flex;">View All Insights &rarr;</a>
+      </div>
+    @else
+      <div class="ch-insights-page__grid">
+        @foreach($posts as $post)
+          <a href="{{ route('posts.view', $post->id) }}" class="ch-article-card">
+            @if($post->image)
+              <img src="{{ asset('images/' . $post->image) }}" alt="{{ $post->title }}" class="ch-article-card__img">
+            @else
+              <div class="ch-article-card__img-placeholder"><i class="fas fa-newspaper"></i></div>
+            @endif
+            <div class="ch-article-card__body">
+              <div class="ch-article-card__meta">
+                <span class="ch-article-card__date">{{ $post->created_at->format('M j, Y') }}</span>
+                <span class="ch-article-card__dot"></span>
+                <span class="ch-article-card__cat">{{ $category->title }}</span>
+              </div>
+              <h3 class="ch-article-card__title">{{ $post->title }}</h3>
+              @if($post->excerpt)
+                <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">{{ Str::limit($post->excerpt, 110) }}</p>
+              @endif
+              <span class="ch-article-card__arrow"><i class="fas fa-arrow-right"></i></span>
             </div>
-        </div>
-        <div class="s-bricks s-bricks--half-top-padding">
+          </a>
+        @endforeach
+      </div>
+    @endif
 
-            <div class="masonry">
-                <div class="bricks-wrapper h-group">
+    <!-- Category list -->
+    <div style="margin-top:56px;padding-top:40px;border-top:1px solid var(--border);">
+      <p class="ch-section-label" style="margin-bottom:16px;">Browse Other Categories</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        @foreach($categories as $cat)
+          <a href="{{ route('categories.view', $cat->id) }}"
+             class="ch-post-article__tag {{ $cat->id === $category->id ? 'ch-post-article__tag--active' : '' }}">
+            {{ $cat->title }}
+          </a>
+        @endforeach
+      </div>
+    </div>
 
-                    <div class="grid-sizer"></div>
-                    {{-- <div class="lines">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div> --}}
-                    @foreach ($category->posts as $post)
+  </div>
+</section>
 
-                    @endforeach
-                    <article class="brick entry" data-aos="fade-up">
+<!-- CTA -->
+<section class="ch-cta">
+  <div class="ch-cta__inner">
+    <div>
+      <h2 class="ch-cta__heading">Ready to build<br>what's next?</h2>
+      <p class="ch-cta__desc">Let's discuss how we can help your organisation grow across Africa.</p>
+    </div>
+    <div class="ch-cta__center">
+      <a href="{{ route('contact') }}" class="ch-cta__btn">Let's Talk &rarr;</a>
+    </div>
+    <div class="ch-cta__contact">
+      <div class="ch-contact-item"><i class="fas fa-envelope"></i><span>hello@cherubapps.africa</span></div>
+      <div class="ch-contact-item"><i class="fas fa-phone"></i><span>+254 729 696 753</span></div>
+    </div>
+  </div>
+</section>
 
-                        <div class="entry__thumb">
-                            <a href="{{ route('posts.view', $post->id) }}" class="thumb-link">
-                                <img src="{{ asset('images/' . $post->image) }}" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a
-                                        href="{{ route('posts.view', $post->id) }}">{{ $post->title }}</a></h1>
-
-                                <div class="entry__meta">
-                                    <span class="byline">By:
-                                        <span class='author'>
-                                            <a href="#">{{ $post->user->name }}</a>
-                                        </span>
-                                    </span>
-                                    <span class="cat-links">
-                                        <a href="#">{{ $category->title }}</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                    {{ $post->excerpt }}
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="{{ route('posts.view', $post->id) }}">Learn More</a>
-                        </div> <!-- end entry__text -->
-
-                    </article> <!-- end article -->
-
-                </div> <!-- end brick-wrapper -->
-
-            </div> <!-- end masonry -->
-
-        </div> <!-- end s-bricks -->
-
-    </section>
 @endsection

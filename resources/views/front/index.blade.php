@@ -296,17 +296,17 @@
     </div>
 
     <div class="ch-cta__center">
-      <a href="mailto:info@cherubapps.com" class="ch-cta__btn">Let's Talk &rarr;</a>
+      <a href="mailto:hello@cherubapps.com" class="ch-cta__btn">Let's Talk &rarr;</a>
     </div>
 
     <div class="ch-cta__contact">
       <div class="ch-contact-item">
         <i class="fas fa-envelope"></i>
-        <span>info@cherubapps.com</span>
+        <span>hello@cherubapps.com</span>
       </div>
       <div class="ch-contact-item">
         <i class="fas fa-phone"></i>
-        <span>+254 700 000 000</span>
+        <span>+254 729 696 753</span>
       </div>
       <div class="ch-contact-item">
         <i class="fas fa-map-marker-alt"></i>
