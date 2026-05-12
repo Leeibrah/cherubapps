@@ -39,7 +39,7 @@
         <div>
           <p class="ch-contact__info-label">Call us</p>
           <p class="ch-contact__info-value">
-            <a href="tel:+254729696753">+254 729 696 753</a>
+            <a href="tel:0707649949">0707 649 949</a>
           </p>
         </div>
       </div>
@@ -147,7 +147,7 @@
                 id="phone"
                 name="phone"
                 class="ch-form__input"
-                placeholder="+254 700 000 000"
+                placeholder="0707 649 949"
                 value="{{ old('phone') }}"
               >
             </div>

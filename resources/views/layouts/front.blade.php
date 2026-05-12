@@ -5,6 +5,8 @@
   <title>Cherub Apps – Strategic Advisory for Africa's Digital Future</title>
   <meta name="description" content="We help organizations build resilient systems and scale across Africa.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
   <link rel="stylesheet" href="{{ asset('css/cherub.css') }}">
   <script defer src="{{ asset('front/js/fontawesome/all.min.js') }}"></script>
 </head>
@@ -34,36 +36,17 @@
           Blog <i class="fas fa-chevron-down ch-nav-dropdown__chevron"></i>
         </button>
         <div class="ch-nav-dropdown__panel" id="ch-blog-panel">
-          <div class="ch-blog-menu">
-
-            <div class="ch-blog-menu__sidebar">
-              <p class="ch-blog-menu__label">Categories</p>
-              <a href="{{ route('insights') }}" class="ch-blog-menu__cat-link ch-blog-menu__cat-link--all">
-                <i class="fas fa-th-large"></i> All Posts
+          <div class="ch-blog-menu ch-blog-menu--compact">
+            <a href="{{ route('insights') }}" class="ch-blog-menu__cat-link ch-blog-menu__cat-link--all">
+              <i class="fas fa-th-large"></i> All Posts
+            </a>
+            <div class="ch-blog-menu__divider"></div>
+            <p class="ch-blog-menu__label">Browse by Category</p>
+            @foreach($navCategories as $cat)
+              <a href="{{ route('categories.view', $cat->id) }}" class="ch-blog-menu__cat-link">
+                <i class="fas fa-tag" style="font-size:10px;opacity:0.5;"></i> {{ $cat->title }}
               </a>
-              @foreach($navCategories as $cat)
-                <a href="{{ route('categories.view', $cat->id) }}" class="ch-blog-menu__cat-link">
-                  {{ $cat->title }}
-                </a>
-              @endforeach
-            </div>
-
-            <div class="ch-blog-menu__posts">
-              <p class="ch-blog-menu__label">Latest Posts</p>
-              @foreach($navPosts as $post)
-                <a href="{{ route('posts.view', $post->id) }}" class="ch-blog-menu__post">
-                  @if($post->image)
-                    <img src="{{ asset('images/' . $post->image) }}" alt="{{ $post->title }}" class="ch-blog-menu__post-img">
-                  @endif
-                  <div class="ch-blog-menu__post-body">
-                    <span class="ch-blog-menu__post-cat">{{ optional($post->categories->first())->title ?? 'Insights' }}</span>
-                    <p class="ch-blog-menu__post-title">{{ $post->title }}</p>
-                    <span class="ch-blog-menu__post-date">{{ $post->created_at->format('M j, Y') }}</span>
-                  </div>
-                </a>
-              @endforeach
-            </div>
-
+            @endforeach
           </div>
         </div>
       </div>
@@ -88,24 +71,23 @@
     </a>
     <button class="ch-mobile-nav__close" id="ch-nav-close">&times;</button>
   </div>
-  <ul>
-    <li><a href="{{ route('home') }}">Home</a></li>
-    <li><a href="{{ route('who-we-are') }}">Who We Are</a></li>
-    <li><a href="{{ route('what-we-do') }}">What We Do</a></li>
-    <li><a href="{{ route('insights') }}">Insights</a></li>
-    <li>
-      <a href="{{ route('insights') }}">Blog</a>
-      <ul class="ch-mobile-subnav">
-        @foreach($navPosts as $post)
-          <li><a href="{{ route('posts.view', $post->id) }}">{{ $post->title }}</a></li>
-        @endforeach
-      </ul>
-    </li>
-    <li><a href="{{ route('about') }}">About</a></li>
-    <li><a href="{{ route('contact') }}">Contact</a></li>
-  </ul>
-  <div class="ch-mobile-nav__cta">
-    <a href="#contact" class="btn-primary">Let's Talk &rarr;</a>
+
+  <nav class="ch-mobile-nav__links">
+    <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'ch-mobile-nav__link--active' : '' }}">Home</a>
+    <a href="{{ route('who-we-are') }}" class="{{ request()->routeIs('who-we-are') ? 'ch-mobile-nav__link--active' : '' }}">Who We Are</a>
+    <a href="{{ route('what-we-do') }}" class="{{ request()->routeIs('what-we-do') ? 'ch-mobile-nav__link--active' : '' }}">What We Do</a>
+    <a href="{{ route('insights') }}" class="{{ request()->routeIs('insights') ? 'ch-mobile-nav__link--active' : '' }}">Insights</a>
+    <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'ch-mobile-nav__link--active' : '' }}">About</a>
+    <a href="{{ route('insights') }}" class="{{ request()->routeIs('posts.view') || request()->routeIs('categories.view') ? 'ch-mobile-nav__link--active' : '' }}">Blog</a>
+    <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'ch-mobile-nav__link--active' : '' }}">Contact</a>
+  </nav>
+
+  <div class="ch-mobile-nav__footer">
+    <a href="{{ route('contact') }}" class="btn-primary" style="width:100%;justify-content:center;">Let's Talk &rarr;</a>
+    <div class="ch-mobile-nav__footer-links">
+      <a href="{{ route('privacy') }}">Privacy Policy</a>
+      <a href="{{ route('terms') }}">Terms of Use</a>
+    </div>
   </div>
 </div>
 

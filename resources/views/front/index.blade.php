@@ -306,7 +306,7 @@
       </div>
       <div class="ch-contact-item">
         <i class="fas fa-phone"></i>
-        <span>+254 729 696 753</span>
+        <span>0707 649 949</span>
       </div>
       <div class="ch-contact-item">
         <i class="fas fa-map-marker-alt"></i>
