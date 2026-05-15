@@ -197,17 +197,17 @@
     <p class="ch-section-label" style="text-align:center;margin-bottom:16px;">Cherub Helps You Answer</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center;">
       <div>
-        <div style="font-size:40px;font-family:'Playfair Display',serif;font-weight:800;color:var(--orange);margin-bottom:8px;">01</div>
+        <div style="font-size:40px;font-family:'Playfair Display',serif;font-weight:800;color:var(--supernova);margin-bottom:8px;">01</div>
         <p style="font-size:16px;font-weight:700;color:var(--text);">Where should we expand?</p>
         <p style="font-size:13px;color:var(--text-muted);margin-top:6px;line-height:1.7;">Pan-African market intelligence and go-to-market strategy.</p>
       </div>
       <div>
-        <div style="font-size:40px;font-family:'Playfair Display',serif;font-weight:800;color:var(--orange);margin-bottom:8px;">02</div>
+        <div style="font-size:40px;font-family:'Playfair Display',serif;font-weight:800;color:var(--supernova);margin-bottom:8px;">02</div>
         <p style="font-size:16px;font-weight:700;color:var(--text);">Who should we partner with?</p>
         <p style="font-size:13px;color:var(--text-muted);margin-top:6px;line-height:1.7;">Ecosystem mapping and strategic partnership structuring.</p>
       </div>
       <div>
-        <div style="font-size:40px;font-family:'Playfair Display',serif;font-weight:800;color:var(--orange);margin-bottom:8px;">03</div>
+        <div style="font-size:40px;font-family:'Playfair Display',serif;font-weight:800;color:var(--supernova);margin-bottom:8px;">03</div>
         <p style="font-size:16px;font-weight:700;color:var(--text);">What model scales fastest?</p>
         <p style="font-size:13px;color:var(--text-muted);margin-top:6px;line-height:1.7;">Revenue model design, commercial clarity, and monetization.</p>
       </div>
