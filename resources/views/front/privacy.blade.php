@@ -1,4 +1,10 @@
 @extends('layouts.front')
+
+@section('seo_title', 'Privacy Policy – Cherub Apps Consult')
+@section('seo_description', 'Read the Privacy Policy for Cherub Apps Consult. We are committed to protecting your personal information. Governed by the laws of Kenya. Last updated May 2025.')
+@section('seo_robots', 'noindex, follow')
+@section('og_title', 'Privacy Policy – Cherub Apps Consult')
+@section('og_description', 'How Cherub Apps Consult collects, uses, and protects your personal information.')
 @section('content')
 
 <section class="ch-page-hero">

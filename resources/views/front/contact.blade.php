@@ -1,4 +1,35 @@
 @extends('layouts.front')
+
+@section('seo_title', 'Contact Us – Talk to Our Africa Advisory Team')
+@section('seo_description', 'Get in touch with Cherub Apps Consult. Whether you\'re exploring a new African market, transforming your digital infrastructure, or preparing for AI — start with a conversation. Based in Nairobi, Kenya.')
+@section('seo_keywords', 'contact Cherub Apps Consult, Africa advisory contact, Nairobi consulting contact, hire Africa fintech consultant, digital transformation inquiry Africa, Africa strategy consultation, engage Africa advisory firm, Nairobi advisory contact, Kenya consulting firm contact, Africa financial services advisor contact')
+@section('og_title', 'Contact Cherub Apps Consult – Let\'s Build Something Together')
+@section('og_description', 'Whether you\'re exploring a new market, transforming your infrastructure, or preparing for AI — start with a conversation. We respond within 24 hours.')
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "{{ config('app.url') }}/contact#webpage",
+  "url": "{{ config('app.url') }}/contact",
+  "name": "Contact Cherub Apps Consult",
+  "description": "Get in touch with Cherub Apps Consult to discuss advisory services, digital transformation projects, or market expansion across Africa.",
+  "isPartOf": { "@id": "{{ config('app.url') }}/#website" },
+  "mainEntity": {
+    "@type": "Organization",
+    "@id": "{{ config('app.url') }}/#organization",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+254707649949",
+      "email": "hello@cherubapps.africa",
+      "contactType": "customer service",
+      "areaServed": "Africa",
+      "availableLanguage": "English"
+    }
+  }
+}
+</script>
+@endsection
 @section('content')
 
 <!-- PAGE HERO -->

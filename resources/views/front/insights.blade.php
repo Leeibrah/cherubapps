@@ -1,4 +1,25 @@
 @extends('layouts.front')
+
+@section('seo_title', 'Insights – Africa Digital Finance, Fintech & Strategy Blog')
+@section('seo_description', 'Practical perspectives on digital finance, fintech, infrastructure resilience, AI transformation, and market expansion across Africa — from the Cherub Apps Consult team.')
+@section('seo_keywords', 'Africa fintech blog, digital finance insights Africa, Africa strategy articles, fintech news Africa, digital banking Africa blog, Africa AI transformation articles, mobile money insights, infrastructure resilience blog, Africa market expansion insights, Kenya fintech articles, Africa consulting blog, pan-African business insights, digital finance Africa articles, SACCO digital articles, MFI technology insights Africa')
+@section('og_type', 'website')
+@section('og_title', 'Insights – Ideas That Drive Growth Across Africa')
+@section('og_description', 'Practical perspectives on digital finance, infrastructure resilience, AI transformation, and scaling across Africa — from the Cherub Apps team and Africa\'s digital frontier.')
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "{{ config('app.url') }}/insights#blog",
+  "url": "{{ config('app.url') }}/insights",
+  "name": "Cherub Apps Consult Insights",
+  "description": "Practical perspectives on digital finance, fintech, infrastructure resilience, AI transformation, and market expansion across Africa.",
+  "publisher": { "@id": "{{ config('app.url') }}/#organization" },
+  "isPartOf": { "@id": "{{ config('app.url') }}/#website" }
+}
+</script>
+@endsection
 @section('content')
 
 <!-- PAGE HERO -->

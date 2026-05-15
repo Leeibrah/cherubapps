@@ -80,4 +80,16 @@ class PageController extends Controller
         $categories = Category::all();
         return view('front.categories.show', compact('category', 'posts', 'categories'));
     }
+
+    public function sitemap(){
+        $posts = Post::latest()->get();
+        $categories = Category::all();
+        return response()->view('front.sitemap', compact('posts', 'categories'))
+            ->header('Content-Type', 'application/xml');
+    }
+
+    public function robots(){
+        $content = "User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /dashboard\n\nSitemap: " . config('app.url') . "/sitemap.xml\n";
+        return response($content, 200)->header('Content-Type', 'text/plain');
+    }
 }

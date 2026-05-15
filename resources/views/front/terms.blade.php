@@ -1,4 +1,10 @@
 @extends('layouts.front')
+
+@section('seo_title', 'Terms of Use – Cherub Apps Consult')
+@section('seo_description', 'Read the Terms of Use for the Cherub Apps Consult website and advisory services. Governing law: Republic of Kenya. Last updated May 2025.')
+@section('seo_robots', 'noindex, follow')
+@section('og_title', 'Terms of Use – Cherub Apps Consult')
+@section('og_description', 'Terms of Use for the Cherub Apps Consult website and professional advisory services.')
 @section('content')
 
 <section class="ch-page-hero">

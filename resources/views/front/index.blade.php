@@ -1,10 +1,18 @@
 @extends('layouts.front')
+
+@section('seo_title', 'Strategic Advisory for Africa Digital Future')
+@section('seo_description', 'Cherub Apps Consult helps financial institutions, fintechs, telcos and governments build resilient systems, adopt AI, expand across Africa and scale digital finance. Nairobi, Kenya.')
+@section('seo_keywords', 'Africa digital transformation consulting, fintech advisory Africa, strategic advisory Africa, digital finance consulting Africa, Africa market expansion strategy, infrastructure resilience Africa, AI transformation consulting Africa, Kenya consulting firm, Nairobi advisory firm, pan-African business strategy, mobile money strategy Africa, digital banking advisory, SACCO consulting Kenya, MFI technology Africa, financial inclusion Africa, embedded finance Africa, open banking Kenya, Africa scaling strategy, Africa business strategy, Africa strategic partner')
+@section('og_title', 'Cherub Apps Consult – Strategic Advisory for Africa Digital Future')
+@section('og_description', 'We partner with financial institutions, fintechs, telcos and governments to build resilient systems and scale across Africa. Nairobi, Kenya.')
 @section('content')
 
 <!-- =========================================================
      HERO
      ========================================================= -->
 <section class="ch-hero">
+  <div class="ch-hero__glow ch-hero__glow--1"></div>
+  <div class="ch-hero__glow ch-hero__glow--2"></div>
   <div class="ch-hero__inner">
 
     <div class="ch-hero__content">
@@ -36,24 +44,46 @@
 </section>
 
 <!-- =========================================================
+     TICKER STRIP
+     ========================================================= -->
+<div class="ch-ticker" aria-hidden="true">
+  <div class="ch-ticker__track">
+    <span>Digital Finance Advisory</span><span class="ch-ticker__sep">◆</span>
+    <span>Infrastructure Resilience</span><span class="ch-ticker__sep">◆</span>
+    <span>AI &amp; Enterprise Transformation</span><span class="ch-ticker__sep">◆</span>
+    <span>Market Expansion Across Africa</span><span class="ch-ticker__sep">◆</span>
+    <span>Fintech Strategy</span><span class="ch-ticker__sep">◆</span>
+    <span>Digital Banking Advisory</span><span class="ch-ticker__sep">◆</span>
+    <span>Africa Growth Strategy</span><span class="ch-ticker__sep">◆</span>
+    <span>Digital Finance Advisory</span><span class="ch-ticker__sep">◆</span>
+    <span>Infrastructure Resilience</span><span class="ch-ticker__sep">◆</span>
+    <span>AI &amp; Enterprise Transformation</span><span class="ch-ticker__sep">◆</span>
+    <span>Market Expansion Across Africa</span><span class="ch-ticker__sep">◆</span>
+    <span>Fintech Strategy</span><span class="ch-ticker__sep">◆</span>
+    <span>Digital Banking Advisory</span><span class="ch-ticker__sep">◆</span>
+    <span>Africa Growth Strategy</span><span class="ch-ticker__sep">◆</span>
+  </div>
+</div>
+
+<!-- =========================================================
      WHAT WE DO
      ========================================================= -->
 <section class="ch-services" id="services">
   <div class="ch-services__inner">
 
-    <div class="ch-services__intro">
+    <div class="ch-services__intro reveal-left">
       <p class="ch-section-label">What We Do</p>
       <h2 class="ch-section-heading">Strategic solutions.<br>Measurable impact.</h2>
       <p class="ch-section-desc">
         We combine strategy, technology and market insight to help
         organizations grow with confidence.
       </p>
-      <a href="#" class="ch-link-arrow">Explore all services &rarr;</a>
+      <a href="{{ route('what-we-do') }}" class="ch-link-arrow">Explore all services &rarr;</a>
     </div>
 
     <div class="ch-services__grid">
 
-      <div class="ch-service-card">
+      <div class="ch-service-card reveal rv-d1">
         <div class="ch-service-card__icon ch-service-card__icon--green">
           <i class="fas fa-coins"></i>
         </div>
@@ -63,10 +93,10 @@
         <p class="ch-service-card__desc">
           Design, launch and scale innovative financial products and ecosystems.
         </p>
-        <a href="#" class="ch-service-card__arrow"><i class="fas fa-arrow-right"></i></a>
+        <a href="{{ route('what-we-do') }}" class="ch-service-card__arrow"><i class="fas fa-arrow-right"></i></a>
       </div>
 
-      <div class="ch-service-card">
+      <div class="ch-service-card reveal rv-d2">
         <div class="ch-service-card__icon ch-service-card__icon--orange">
           <i class="fas fa-shield-alt"></i>
         </div>
@@ -76,10 +106,10 @@
         <p class="ch-service-card__desc">
           Build always-on systems with robust architecture, redundancy and business continuity.
         </p>
-        <a href="#" class="ch-service-card__arrow"><i class="fas fa-arrow-right"></i></a>
+        <a href="{{ route('what-we-do') }}" class="ch-service-card__arrow"><i class="fas fa-arrow-right"></i></a>
       </div>
 
-      <div class="ch-service-card">
+      <div class="ch-service-card reveal rv-d3">
         <div class="ch-service-card__icon ch-service-card__icon--green">
           <i class="fas fa-brain"></i>
         </div>
@@ -89,10 +119,10 @@
         <p class="ch-service-card__desc">
           Prepare your organization for the future with AI readiness, automation and operating model transformation.
         </p>
-        <a href="#" class="ch-service-card__arrow"><i class="fas fa-arrow-right"></i></a>
+        <a href="{{ route('what-we-do') }}" class="ch-service-card__arrow"><i class="fas fa-arrow-right"></i></a>
       </div>
 
-      <div class="ch-service-card">
+      <div class="ch-service-card reveal rv-d4">
         <div class="ch-service-card__icon ch-service-card__icon--orange">
           <i class="fas fa-chart-line"></i>
         </div>
@@ -102,7 +132,7 @@
         <p class="ch-service-card__desc">
           Enter new markets, build partnerships and scale across Africa with clarity and speed.
         </p>
-        <a href="#" class="ch-service-card__arrow"><i class="fas fa-arrow-right"></i></a>
+        <a href="{{ route('what-we-do') }}" class="ch-service-card__arrow"><i class="fas fa-arrow-right"></i></a>
       </div>
 
     </div>
@@ -115,32 +145,32 @@
 <section class="ch-why">
   <div class="ch-why__inner">
 
-    <div class="ch-why__intro">
+    <div class="ch-why__intro reveal-left">
       <p class="ch-section-label">Why Cherub</p>
       <h2 class="ch-section-heading">The advantage<br>you need.</h2>
     </div>
 
     <div class="ch-why__advantages">
 
-      <div class="ch-advantage">
+      <div class="ch-advantage reveal rv-d1">
         <div class="ch-advantage__icon"><i class="fas fa-bullseye"></i></div>
         <h3 class="ch-advantage__title">Strategic Lens</h3>
         <p class="ch-advantage__desc">Executive-level advisory grounded in measurable business outcomes.</p>
       </div>
 
-      <div class="ch-advantage">
+      <div class="ch-advantage reveal rv-d2">
         <div class="ch-advantage__icon"><i class="fas fa-server"></i></div>
         <h3 class="ch-advantage__title">Technical Depth</h3>
         <p class="ch-advantage__desc">Deep expertise in infrastructure, fintech rails and resilience architecture.</p>
       </div>
 
-      <div class="ch-advantage">
+      <div class="ch-advantage reveal rv-d3">
         <div class="ch-advantage__icon"><i class="fas fa-chart-bar"></i></div>
         <h3 class="ch-advantage__title">Commercial Focus</h3>
         <p class="ch-advantage__desc">Solutions designed for adoption, monetization and long-term scale.</p>
       </div>
 
-      <div class="ch-advantage">
+      <div class="ch-advantage reveal rv-d4">
         <div class="ch-advantage__icon"><i class="fas fa-globe-africa"></i></div>
         <h3 class="ch-advantage__title">Africa Expertise</h3>
         <p class="ch-advantage__desc">Strong understanding of regional opportunity, regulation and ecosystems.</p>
@@ -156,40 +186,33 @@
 <section class="ch-trusted">
   <div class="ch-trusted__inner">
 
-    <div class="ch-trusted__header">
+    <div class="ch-trusted__header reveal">
       <div class="ch-trusted__line"></div>
       <span>Trusted by Organizations Building Africa's Future</span>
       <div class="ch-trusted__line"></div>
     </div>
 
-    <div class="ch-trusted__icons">
-      <div class="ch-trust-item">
-        <span class="ch-trust-item__icon"><i class="fas fa-university"></i></span>
-        <span class="ch-trust-item__label">Banks</span>
-      </div>
-      <div class="ch-trust-item">
-        <span class="ch-trust-item__icon"><i class="fas fa-users"></i></span>
-        <span class="ch-trust-item__label">SACCOs</span>
-      </div>
-      <div class="ch-trust-item">
-        <span class="ch-trust-item__icon"><i class="fas fa-mobile-alt"></i></span>
-        <span class="ch-trust-item__label">Fintechs</span>
-      </div>
-      <div class="ch-trust-item">
-        <span class="ch-trust-item__icon"><i class="fas fa-broadcast-tower"></i></span>
-        <span class="ch-trust-item__label">Telcos</span>
-      </div>
-      <div class="ch-trust-item">
-        <span class="ch-trust-item__icon"><i class="fas fa-landmark"></i></span>
-        <span class="ch-trust-item__label">Governments</span>
-      </div>
-      <div class="ch-trust-item">
-        <span class="ch-trust-item__icon"><i class="fas fa-shield-alt"></i></span>
-        <span class="ch-trust-item__label">Insurers</span>
-      </div>
-      <div class="ch-trust-item">
-        <span class="ch-trust-item__icon"><i class="fas fa-hand-holding-usd"></i></span>
-        <span class="ch-trust-item__label">Investors</span>
+    <div class="ch-trusted__track-wrap">
+      <div class="ch-trusted__track">
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-university"></i></span><span class="ch-trust-item__label">Banks</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-users"></i></span><span class="ch-trust-item__label">SACCOs</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-mobile-alt"></i></span><span class="ch-trust-item__label">Fintechs</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-broadcast-tower"></i></span><span class="ch-trust-item__label">Telcos</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-landmark"></i></span><span class="ch-trust-item__label">Governments</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-shield-alt"></i></span><span class="ch-trust-item__label">Insurers</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-hand-holding-usd"></i></span><span class="ch-trust-item__label">Investors</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-chart-network"></i></span><span class="ch-trust-item__label">MFIs</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-globe-africa"></i></span><span class="ch-trust-item__label">NGOs</span></div>
+        <!-- Duplicated for seamless loop -->
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-university"></i></span><span class="ch-trust-item__label">Banks</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-users"></i></span><span class="ch-trust-item__label">SACCOs</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-mobile-alt"></i></span><span class="ch-trust-item__label">Fintechs</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-broadcast-tower"></i></span><span class="ch-trust-item__label">Telcos</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-landmark"></i></span><span class="ch-trust-item__label">Governments</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-shield-alt"></i></span><span class="ch-trust-item__label">Insurers</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-hand-holding-usd"></i></span><span class="ch-trust-item__label">Investors</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-chart-network"></i></span><span class="ch-trust-item__label">MFIs</span></div>
+        <div class="ch-trust-item"><span class="ch-trust-item__icon"><i class="fas fa-globe-africa"></i></span><span class="ch-trust-item__label">NGOs</span></div>
       </div>
     </div>
 
@@ -202,7 +225,7 @@
 <section class="ch-insights" id="insights">
   <div class="ch-insights__inner">
 
-    <div class="ch-insights__intro">
+    <div class="ch-insights__intro reveal-left">
       <p class="ch-section-label">Insights</p>
       <h2 class="ch-section-heading">Ideas that<br>drive growth.</h2>
       <p class="ch-section-desc">
@@ -214,7 +237,7 @@
 
     <div class="ch-insights__grid">
       @forelse ($posts->take(3) as $post)
-        <a href="{{ route('posts.view', $post->id) }}" class="ch-article-card">
+        <a href="{{ route('posts.view', $post->id) }}" class="ch-article-card reveal rv-d{{ $loop->index + 1 }}">
           @if ($post->image)
             <img
               src="{{ asset('images/' . $post->image) }}"

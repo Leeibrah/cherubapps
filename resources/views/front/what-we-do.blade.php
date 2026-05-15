@@ -1,4 +1,60 @@
 @extends('layouts.front')
+
+@section('seo_title', 'What We Do – Digital Finance, AI, Infrastructure & Market Expansion')
+@section('seo_description', 'Cherub Apps Consult offers four core advisory services: Digital Finance & Fintech Advisory, Infrastructure Resilience, AI & Enterprise Transformation, and Market Expansion across Africa. Serving banks, fintechs, telcos and governments.')
+@section('seo_keywords', 'Africa fintech advisory services, digital finance consulting Africa, infrastructure resilience consulting, AI transformation Africa, market expansion Africa services, digital banking advisory, enterprise transformation Africa, SACCO digital transformation, MFI consulting Africa, mobile money advisory, embedded finance consulting, open banking Africa, Africa enterprise AI, business continuity Africa, cross-border payments consulting Africa')
+@section('og_title', 'What We Do – Four Ways Cherub Helps You Scale')
+@section('og_description', 'Strategic solutions across digital finance, infrastructure resilience, AI transformation, and market expansion — built for institutions that want to lead Africa\'s digital future.')
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "{{ config('app.url') }}/what-we-do#services",
+  "name": "Strategic Advisory Services – Cherub Apps Consult",
+  "provider": { "@id": "{{ config('app.url') }}/#organization" },
+  "areaServed": { "@type": "Place", "name": "Africa" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Advisory Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Digital Finance & Fintech Advisory",
+          "description": "Design, launch and scale innovative financial products and ecosystems across Africa — from mobile money to embedded finance, API banking and beyond."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Infrastructure Resilience",
+          "description": "Build always-on systems with robust architecture, redundancy and business continuity. Protect your operations from downtime and disruption."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI & Enterprise Transformation",
+          "description": "Prepare your organisation for the future with AI readiness assessments, automation strategy and operating model transformation."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Market Expansion Across Africa",
+          "description": "Enter new markets, build partnerships and scale across Africa with clarity and speed. From East Africa to West and beyond."
+        }
+      }
+    ]
+  }
+}
+</script>
+@endsection
 @section('content')
 
 <!-- PAGE HERO -->

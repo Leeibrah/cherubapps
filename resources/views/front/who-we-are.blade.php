@@ -1,4 +1,24 @@
 @extends('layouts.front')
+
+@section('seo_title', 'Who We Are – Our Story, Mission & Team')
+@section('seo_description', 'Cherub Apps Consult was founded to accelerate Africa\'s digital transformation. We partner with financial institutions, fintechs, telcos and governments across Africa to build resilient systems and unlock scalable growth.')
+@section('seo_keywords', 'Cherub Apps story, Africa digital transformation firm, Africa advisory mission, Nairobi fintech consultant, Africa strategic partner, digital finance experts Africa, fintech advisory team Kenya, Africa consulting leadership, financial services advisory Africa, digital future Africa')
+@section('og_title', 'Who We Are – Cherub Apps Consult')
+@section('og_description', 'A strategic advisory and digital transformation firm built for Africa\'s next decade — helping institutions build resilient systems, scalable ecosystems, and future-ready leadership.')
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ config('app.url') }}/who-we-are#webpage",
+  "url": "{{ config('app.url') }}/who-we-are",
+  "name": "Who We Are – Cherub Apps Consult",
+  "description": "The story, mission and team behind Cherub Apps Consult — Africa's strategic advisory partner for digital finance and transformation.",
+  "isPartOf": { "@id": "{{ config('app.url') }}/#website" },
+  "about": { "@id": "{{ config('app.url') }}/#organization" }
+}
+</script>
+@endsection
 @section('content')
 
 <!-- PAGE HERO -->
@@ -41,20 +61,20 @@
     </div>
 
     <div class="ch-mission__stats">
-      <div class="ch-stat-card">
-        <div class="ch-stat-card__number">4+</div>
+      <div class="ch-stat-card reveal rv-d1">
+        <div class="ch-stat-card__number" data-count="4" data-suffix="+">4+</div>
         <div class="ch-stat-card__label">Core Service Areas</div>
       </div>
-      <div class="ch-stat-card">
-        <div class="ch-stat-card__number">10+</div>
+      <div class="ch-stat-card reveal rv-d2">
+        <div class="ch-stat-card__number" data-count="10" data-suffix="+">10+</div>
         <div class="ch-stat-card__label">African Markets</div>
       </div>
-      <div class="ch-stat-card">
-        <div class="ch-stat-card__number">3</div>
+      <div class="ch-stat-card reveal rv-d3">
+        <div class="ch-stat-card__number" data-count="3">3</div>
         <div class="ch-stat-card__label">Expert Wings</div>
       </div>
-      <div class="ch-stat-card">
-        <div class="ch-stat-card__number">∞</div>
+      <div class="ch-stat-card reveal rv-d4">
+        <div class="ch-stat-card__number">&#x221E;</div>
         <div class="ch-stat-card__label">Growth Potential</div>
       </div>
     </div>
@@ -74,7 +94,7 @@
     </div>
 
     <div class="ch-values__grid">
-      <div class="ch-value-card">
+      <div class="ch-value-card reveal rv-d1">
         <div class="ch-value-card__icon"><i class="fas fa-bullseye"></i></div>
         <h3 class="ch-value-card__title">Impact Over Features</h3>
         <p class="ch-value-card__desc">

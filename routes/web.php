@@ -33,6 +33,8 @@ Route::get('/posts/{post}', 'PageController@showPost')->name('posts.view');
 Route::get('/category/{category}', 'PageController@showCategory')->name('categories.view');
 Route::get('/privacy-policy', 'PageController@privacy')->name('privacy');
 Route::get('/terms-of-use', 'PageController@terms')->name('terms');
+Route::get('/sitemap.xml', 'PageController@sitemap')->name('sitemap');
+Route::get('/robots.txt', 'PageController@robots')->name('robots');
 
 // admin pages
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {

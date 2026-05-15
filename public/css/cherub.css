@@ -1767,7 +1767,6 @@ img { max-width: 100%; display: block; }
   .ch-insights-page__grid { grid-template-columns: 1fr; }
 
   .ch-why__advantages { grid-template-columns: 1fr; }
-  .ch-trusted__icons { gap: 20px; }
   .ch-trust-item { border: none; padding: 0 14px; }
 
   .ch-values__grid,
@@ -2177,4 +2176,247 @@ img { max-width: 100%; display: block; }
 .ch-legal__contact p {
   margin-bottom: 6px !important;
   font-size: 14px !important;
+}
+
+/* =========================================================
+   ANIMATIONS & MOTION SYSTEM
+   ========================================================= */
+
+/* --- Keyframes ------------------------------------------ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(34px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes floatMap {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-20px); }
+}
+@keyframes floatGlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(28px, -22px) scale(1.1); }
+  70%       { transform: translate(-18px, 12px) scale(0.92); }
+}
+@keyframes marqueeRoll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes gradShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+@keyframes shimmerAccent {
+  from { background-position: 100% center; }
+  to   { background-position: -100% center; }
+}
+
+/* --- Hero position context ------------------------------ */
+.ch-hero { position: relative; }
+.ch-hero__inner { position: relative; z-index: 1; }
+
+/* --- Hero load sequence (staggered) --------------------- */
+.ch-hero__eyebrow { animation: fadeInUp 0.6s ease both; }
+.ch-hero__heading { animation: fadeInUp 0.7s ease 0.13s both; }
+.ch-hero__desc    { animation: fadeInUp 0.7s ease 0.25s both; }
+.ch-hero__actions { animation: fadeInUp 0.7s ease 0.37s both; }
+
+/* Map: slides in from right then gently floats forever */
+.ch-hero__map-img {
+  animation: fadeInRight 0.85s ease 0.2s both, floatMap 9s ease-in-out 1.1s infinite;
+}
+
+/* Accent gradient shimmer on hero heading */
+.ch-hero__heading .accent {
+  display: inline-block;
+  background: linear-gradient(110deg, var(--orange) 0%, #d86526 38%, var(--supernova) 65%, var(--orange) 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerAccent 3.5s ease-in-out 1.5s infinite alternate;
+}
+
+/* --- Ambient glow blobs behind hero --------------------- */
+.ch-hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(78px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatGlow 16s ease-in-out infinite;
+}
+.ch-hero__glow--1 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(4,220,140,0.13) 0%, transparent 70%);
+  top: -110px; right: 14%;
+}
+.ch-hero__glow--2 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(181,82,36,0.1) 0%, transparent 70%);
+  bottom: -50px; left: 5%;
+  animation-delay: -7s;
+  animation-direction: reverse;
+}
+
+/* --- Ticker strip --------------------------------------- */
+.ch-ticker {
+  background: var(--green-dark);
+  padding: 13px 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ch-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: marqueeRoll 22s linear infinite;
+  white-space: nowrap;
+}
+.ch-ticker__track:hover { animation-play-state: paused; }
+.ch-ticker__track span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  padding: 0 30px;
+  flex-shrink: 0;
+}
+.ch-ticker__sep {
+  color: var(--caribbean) !important;
+  padding: 0 6px !important;
+  letter-spacing: 0 !important;
+  font-size: 14px !important;
+}
+
+/* --- Trusted-by marquee --------------------------------- */
+.ch-trusted__track-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+.ch-trusted__track {
+  display: flex;
+  width: max-content;
+  animation: marqueeRoll 24s linear infinite;
+}
+.ch-trusted__track:hover { animation-play-state: paused; }
+.ch-trusted__track .ch-trust-item { flex-shrink: 0; }
+
+/* --- CTA animated gradient ------------------------------ */
+.ch-cta {
+  background-image: linear-gradient(
+    135deg,
+    var(--green-dark) 0%,
+    #0b4228 28%,
+    #062819 55%,
+    #0b4228 80%,
+    var(--green-dark) 100%
+  );
+  background-size: 240% 240%;
+  animation: gradShift 10s ease infinite;
+}
+
+/* --- Scroll reveal system ------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible { opacity: 1; transform: translate(0, 0); }
+.rv-d1 { transition-delay: 0.1s; }
+.rv-d2 { transition-delay: 0.2s; }
+.rv-d3 { transition-delay: 0.3s; }
+.rv-d4 { transition-delay: 0.4s; }
+.rv-d5 { transition-delay: 0.5s; }
+
+/* --- Service card: icon spins on hover (no overflow clip issue) */
+.ch-service-card__icon { transition: transform 0.35s ease; }
+.ch-service-card:hover .ch-service-card__icon { transform: scale(1.2) rotate(-10deg); }
+
+/* --- Article card: lift + image zoom -------------------- */
+.ch-article-card { transition: box-shadow 0.28s, transform 0.28s; }
+.ch-article-card:hover { box-shadow: 0 18px 52px rgba(0,0,0,0.12); transform: translateY(-6px); }
+.ch-article-card__img { transition: transform 0.55s ease; }
+.ch-article-card:hover .ch-article-card__img { transform: scale(1.06); }
+
+/* --- Advantage icon bounce on hover -------------------- */
+.ch-advantage__icon { transition: transform 0.3s ease, color 0.25s; }
+.ch-advantage:hover .ch-advantage__icon {
+  transform: translateY(-8px) scale(1.25);
+  color: var(--supernova);
+}
+
+/* --- Value / serve cards ------------------------------- */
+.ch-value-card { transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s; }
+.ch-value-card:hover { transform: translateY(-5px); }
+.ch-serve-card { transition: all 0.25s; }
+.ch-serve-card:hover { transform: translateY(-5px); }
+
+/* --- Process step number ------------------------------- */
+.ch-process-step__number { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.ch-process-step:hover .ch-process-step__number {
+  transform: scale(1.14);
+  box-shadow: 0 0 0 9px rgba(252,204,4,0.2);
+}
+
+/* --- CTA button scale pulse ---------------------------- */
+.ch-cta__btn { transition: background 0.2s, transform 0.22s, box-shadow 0.22s; }
+.ch-cta__btn:hover {
+  background: var(--orange-hover);
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(181,82,36,0.38);
+}
+
+/* --- Contact icon spin --------------------------------- */
+.ch-contact__info-icon { transition: background 0.2s, transform 0.28s; }
+.ch-contact__info-item:hover .ch-contact__info-icon {
+  transform: rotate(14deg) scale(1.12);
+  background: var(--zanah);
+}
+
+/* --- Page hero entrance --------------------------------- */
+.ch-page-hero__eyebrow { animation: fadeIn 0.5s ease both; }
+.ch-page-hero__title   { animation: fadeInUp 0.68s ease 0.1s both; }
+.ch-page-hero__desc    { animation: fadeInUp 0.68s ease 0.22s both; }
+
+/* --- Post hero entrance --------------------------------- */
+.ch-post-hero__meta    { animation: fadeIn 0.6s ease 0.15s both; }
+.ch-post-hero__title   { animation: fadeInUp 0.7s ease 0.25s both; }
+.ch-post-hero__excerpt { animation: fadeInUp 0.65s ease 0.38s both; }
+
+/* --- Respect reduced motion preference ----------------- */
+@media (prefers-reduced-motion: reduce) {
+  .ch-hero__eyebrow, .ch-hero__heading, .ch-hero__desc, .ch-hero__actions,
+  .ch-hero__map-img, .ch-hero__glow,
+  .ch-page-hero__eyebrow, .ch-page-hero__title, .ch-page-hero__desc,
+  .ch-post-hero__meta, .ch-post-hero__title, .ch-post-hero__excerpt {
+    animation: none;
+  }
+  .ch-hero__heading .accent {
+    animation: none;
+    -webkit-text-fill-color: var(--orange);
+    background: none;
+  }
+  .ch-ticker__track, .ch-trusted__track { animation: none; }
+  .ch-cta { animation: none; background-image: none; background: var(--green-dark); }
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
 }

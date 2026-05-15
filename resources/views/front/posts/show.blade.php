@@ -1,4 +1,39 @@
 @extends('layouts.front')
+
+@section('seo_title', $post->title . ' – Cherub Apps Consult')
+@section('seo_description', $post->excerpt ?? Str::limit(strip_tags($post->body), 160))
+@section('og_type', 'article')
+@section('og_title', $post->title)
+@section('og_description', $post->excerpt ?? Str::limit(strip_tags($post->body), 160))
+@section('og_image', asset('images/' . $post->image))
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "{{ url()->current() }}#article",
+  "url": "{{ url()->current() }}",
+  "headline": "{{ $post->title }}",
+  "description": "{{ $post->excerpt ?? Str::limit(strip_tags($post->body), 160) }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ asset('images/' . $post->image) }}",
+    "width": 1200,
+    "height": 630
+  },
+  "datePublished": "{{ $post->created_at->toIso8601String() }}",
+  "dateModified": "{{ $post->updated_at->toIso8601String() }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ $post->user->name }}",
+    "worksFor": { "@id": "{{ config('app.url') }}/#organization" }
+  },
+  "publisher": { "@id": "{{ config('app.url') }}/#organization" },
+  "isPartOf": { "@id": "{{ config('app.url') }}/insights#blog" },
+  "keywords": "{{ $post->categories->pluck('title')->implode(', ') }}, Africa digital transformation, Cherub Apps Consult"
+}
+</script>
+@endsection
 @section('content')
 
 <!-- POST HERO -->

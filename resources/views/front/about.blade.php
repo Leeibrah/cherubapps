@@ -1,4 +1,24 @@
 @extends('layouts.front')
+
+@section('seo_title', 'About Us – Africa Strategic Advisory & Digital Transformation')
+@section('seo_description', 'Learn about Cherub Apps Consult — a Nairobi-based strategic advisory firm helping African financial institutions, fintechs, and enterprises build resilient digital systems and scale across Africa.')
+@section('seo_keywords', 'about Cherub Apps Consult, Africa advisory firm, Nairobi consulting firm, digital transformation Africa, Africa fintech advisory, strategic advisory Kenya, African digital future, financial institutions consulting Africa, enterprise advisory Africa, Africa technology firm')
+@section('og_title', 'About Cherub Apps Consult – Africa\'s Digital Advisory Partner')
+@section('og_description', 'We are a strategic advisory firm built for Africa\'s next decade — helping institutions build resilient systems, scalable ecosystems, and future-ready leadership.')
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "{{ config('app.url') }}/about#webpage",
+  "url": "{{ config('app.url') }}/about",
+  "name": "About Cherub Apps Consult",
+  "description": "Cherub Apps Consult is a strategic advisory firm based in Nairobi, Kenya, specialising in digital finance, fintech advisory, infrastructure resilience, AI transformation and pan-African market expansion.",
+  "isPartOf": { "@id": "{{ config('app.url') }}/#website" },
+  "about": { "@id": "{{ config('app.url') }}/#organization" }
+}
+</script>
+@endsection
 @section('content')
 
 <!-- PAGE HERO -->
