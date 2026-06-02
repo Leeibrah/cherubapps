@@ -177,23 +177,6 @@
       </div>
 
       <div class="ch-team-card">
-        <div class="ch-team-card__avatar"><i class="fas fa-robot"></i></div>
-        <div class="ch-team-card__body">
-          <p class="ch-team-card__wing">AI Wing &mdash; Advisor</p>
-          <h3 class="ch-team-card__name">Michael Michie</h3>
-          <p class="ch-team-card__bio">
-            Michael leads Cherub's AI readiness and enterprise transformation practice.
-            He helps organizations move from AI curiosity to structured implementation —
-            through readiness assessments, executive workshops, and intelligent automation roadmaps
-            tailored for African leadership teams.
-          </p>
-          <a href="https://www.linkedin.com/in/michael-michie-10a29664/" target="_blank" class="ch-team-card__linkedin">
-            <i class="fab fa-linkedin"></i> Connect on LinkedIn
-          </a>
-        </div>
-      </div>
-
-      <div class="ch-team-card">
         <div class="ch-team-card__avatar"><i class="fas fa-laptop-code"></i></div>
         <div class="ch-team-card__body">
           <p class="ch-team-card__wing">Tech Support &mdash; Advisor</p>
@@ -209,6 +192,22 @@
           </a>
         </div>
       </div>
+
+      <div class="ch-team-card">
+        <div class="ch-team-card__avatar"><i class="fas fa-robot"></i></div>
+        <div class="ch-team-card__body">
+          <p class="ch-team-card__wing">AI Wing &mdash; Advisor</p>
+          <h3 class="ch-team-card__name">Cherub AI</h3>
+          <p class="ch-team-card__bio">
+            Cherub AI serves as the intelligent backbone of our advisory practice — analysing
+            market data, synthesising research, and generating strategic insights that power
+            our client engagements. From AI readiness diagnostics to automated reporting and
+            intelligent workflow design, Cherub AI accelerates the depth and speed of everything
+            we deliver across African markets.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -225,7 +224,7 @@
     </div>
     <div class="ch-cta__contact">
       <div class="ch-contact-item"><i class="fas fa-envelope"></i><span>hello@cherubapps.africa</span></div>
-      <div class="ch-contact-item"><i class="fas fa-phone"></i><span>0707 649 949</span></div>
+      <div class="ch-contact-item"><i class="fas fa-phone"></i><span>+254 707 649 949</span></div>
       <div class="ch-contact-item"><i class="fas fa-map-marker-alt"></i><span>Nairobi, Kenya</span></div>
     </div>
   </div>

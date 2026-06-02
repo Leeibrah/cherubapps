@@ -284,7 +284,7 @@
       <a href="{{ route('terms') }}">Terms of Use</a>
     </div>
 
-    <p class="ch-footer__copy">&copy; 2025 Cherub Apps Consult. All rights reserved.</p>
+    <p class="ch-footer__copy">&copy; {{ date('Y') }} Cherub Apps Consult. All rights reserved.</p>
   </div>
 </footer>
 

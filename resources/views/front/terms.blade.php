@@ -113,7 +113,7 @@
           <p><strong>Cherub Apps Consult</strong></p>
           <p>Nairobi, Kenya</p>
           <p>Email: <a href="mailto:hello@cherubapps.africa">hello@cherubapps.africa</a></p>
-          <p>Phone: <a href="tel:0707649949">0707 649 949</a></p>
+          <p>Phone: <a href="tel:+254707649949">+254 707 649 949</a></p>
           <p>Website: <a href="https://www.cherubapps.africa">www.cherubapps.africa</a></p>
         </div>
       </div>

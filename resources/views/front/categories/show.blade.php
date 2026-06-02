@@ -80,7 +80,7 @@
     </div>
     <div class="ch-cta__contact">
       <div class="ch-contact-item"><i class="fas fa-envelope"></i><span>hello@cherubapps.africa</span></div>
-      <div class="ch-contact-item"><i class="fas fa-phone"></i><span>0707 649 949</span></div>
+      <div class="ch-contact-item"><i class="fas fa-phone"></i><span>+254 707 649 949</span></div>
     </div>
   </div>
 </section>
