@@ -188,10 +188,10 @@
         <div class="ch-portfolio-item__icon"><i class="fas fa-paw"></i></div>
         <div class="ch-portfolio-item__name">Hirola Conservation</div>
       </div>
-      <div class="ch-portfolio-item">
+      <!-- <div class="ch-portfolio-item">
         <div class="ch-portfolio-item__icon"><i class="fas fa-network-wired"></i></div>
         <div class="ch-portfolio-item__name">WAICTANET</div>
-      </div>
+      </div> -->
       <div class="ch-portfolio-item">
         <div class="ch-portfolio-item__icon"><i class="fas fa-sms"></i></div>
         <div class="ch-portfolio-item__name">Buffer SMS</div>
