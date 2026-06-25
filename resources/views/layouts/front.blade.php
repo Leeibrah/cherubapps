@@ -188,6 +188,16 @@
   <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
   <link rel="stylesheet" href="{{ asset('css/cherub.css') }}">
   <script defer src="{{ asset('front/js/fontawesome/all.min.js') }}"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKJDC5XZ25"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CKJDC5XZ25');
+  </script>
 </head>
 <body>
 
