@@ -11,10 +11,18 @@
      HERO
      ========================================================= -->
 <section class="ch-hero">
-  <div class="ch-hero__glow ch-hero__glow--1"></div>
-  <div class="ch-hero__glow ch-hero__glow--2"></div>
-  <div class="ch-hero__inner">
 
+  {{-- Banner photo background --}}
+  <img
+    class="ch-hero__bg-img"
+    src="{{ asset('images/hero-banner.png') }}"
+    alt=""
+    fetchpriority="high"
+  >
+  {{-- Left-side gradient veil so text stays legible --}}
+  <div class="ch-hero__veil" aria-hidden="true"></div>
+
+  <div class="ch-hero__inner">
     <div class="ch-hero__content">
       <div class="ch-hero__eyebrow">
         <span>Strategic Advisory for Africa's Digital Future</span>
@@ -35,12 +43,8 @@
         <a href="#contact" class="btn-outline">Let's Talk &#128172;</a>
       </div>
     </div>
-
-    <div class="ch-hero__map">
-      <img src="{{ asset('images/africa-map.png') }}" alt="Africa connectivity map" class="ch-hero__map-img">
-    </div>
-
   </div>
+
 </section>
 
 <!-- =========================================================
@@ -143,41 +147,25 @@
      WHY CHERUB
      ========================================================= -->
 <section class="ch-why">
+
+  {{-- Subtle dot-grid on right half --}}
+  <div class="ch-why__bg-grid" aria-hidden="true"></div>
+
+  {{-- Advisor photo — absolutely anchored to bottom-left, bleeds above --}}
+  <img
+    class="ch-why__photo"
+    src="{{ asset('images/why-advisor.png') }}"
+    alt=""
+    aria-hidden="true"
+  >
+
   <div class="ch-why__inner">
-
-    <div class="ch-why__intro reveal-left">
+    <div class="ch-why__content">
       <p class="ch-section-label">Why Cherub</p>
-      <h2 class="ch-section-heading">The advantage<br>you need.</h2>
-    </div>
-
-    <div class="ch-why__advantages">
-
-      <div class="ch-advantage reveal rv-d1">
-        <div class="ch-advantage__icon"><i class="fas fa-bullseye"></i></div>
-        <h3 class="ch-advantage__title">Strategic Lens</h3>
-        <p class="ch-advantage__desc">Executive-level advisory grounded in measurable business outcomes.</p>
-      </div>
-
-      <div class="ch-advantage reveal rv-d2">
-        <div class="ch-advantage__icon"><i class="fas fa-server"></i></div>
-        <h3 class="ch-advantage__title">Technical Depth</h3>
-        <p class="ch-advantage__desc">Deep expertise in infrastructure, fintech rails and resilience architecture.</p>
-      </div>
-
-      <div class="ch-advantage reveal rv-d3">
-        <div class="ch-advantage__icon"><i class="fas fa-chart-bar"></i></div>
-        <h3 class="ch-advantage__title">Commercial Focus</h3>
-        <p class="ch-advantage__desc">Solutions designed for adoption, monetization and long-term scale.</p>
-      </div>
-
-      <div class="ch-advantage reveal rv-d4">
-        <div class="ch-advantage__icon"><i class="fas fa-globe-africa"></i></div>
-        <h3 class="ch-advantage__title">Africa Expertise</h3>
-        <p class="ch-advantage__desc">Strong understanding of regional opportunity, regulation and ecosystems.</p>
-      </div>
-
+      <h2 class="ch-why__heading">The advantage you need</h2>
     </div>
   </div>
+
 </section>
 
 <!-- =========================================================
@@ -308,33 +296,30 @@
      CTA
      ========================================================= -->
 <section class="ch-cta" id="contact">
+
+  {{-- Subtle green grid overlay --}}
+  <div class="ch-cta__bg-grid" aria-hidden="true"></div>
+
+  {{-- Photo anchored bottom-right, bleeds above --}}
+  <img
+    class="ch-cta__photo"
+    src="{{ asset('images/cta-talk.png') }}"
+    alt=""
+    aria-hidden="true"
+  >
+
   <div class="ch-cta__inner">
 
-    <div>
+    <div class="ch-cta__text">
       <h2 class="ch-cta__heading">Ready to build<br>what's next?</h2>
       <p class="ch-cta__desc">
-        Let's discuss how we can help you build resilient systems,<br>
+        Let's discuss how we can help you build resilient systems,
         unlock growth and scale across Africa.
       </p>
     </div>
 
     <div class="ch-cta__center">
-      <a href="mailto:hello@cherubapps.africa" class="ch-cta__btn">Let's Talk &rarr;</a>
-    </div>
-
-    <div class="ch-cta__contact">
-      <div class="ch-contact-item">
-        <i class="fas fa-envelope"></i>
-        <span>hello@cherubapps.africa</span>
-      </div>
-      <div class="ch-contact-item">
-        <i class="fas fa-phone"></i>
-        <span>+254 707 649 949</span>
-      </div>
-      <div class="ch-contact-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Nairobi, Kenya</span>
-      </div>
+      <a href="{{ route('contact') }}" class="ch-cta__btn">LET'S TALK</a>
     </div>
 
   </div>
