@@ -40,7 +40,7 @@
       </p>
       <div class="ch-hero__actions">
         <a href="#services" class="btn-primary">What We Do &rarr;</a>
-        <a href="#contact" class="btn-outline">Let's Talk &#128172;</a>
+        <a href="{{ route('contact') }}" class="btn-outline">Let's Talk &#128172;</a>
       </div>
     </div>
   </div>

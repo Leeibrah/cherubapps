@@ -244,7 +244,7 @@
       <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
     </nav>
 
-    <a href="#contact" class="ch-header__cta">Let's Talk</a>
+    <a href="{{ route('contact') }}" class="ch-header__cta">Let's Talk</a>
 
     <button class="ch-hamburger" id="ch-hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
