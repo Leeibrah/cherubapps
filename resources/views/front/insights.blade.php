@@ -155,23 +155,5 @@
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="ch-newsletter">
-  <div class="ch-newsletter__inner">
-    <p class="ch-section-label" style="text-align:center;">Stay Informed</p>
-    <h2 class="ch-section-heading" style="text-align:center;font-size:28px;">Get insights in your inbox</h2>
-    <p class="ch-section-desc" style="text-align:center;margin-bottom:0;">
-      Practical perspectives on digital finance, AI, and Africa's digital economy —
-      delivered to leaders who want to stay ahead.
-    </p>
-    <form class="ch-newsletter__form" onsubmit="return false;">
-      <input type="email" class="ch-newsletter__input" placeholder="Your work email address">
-      <button type="submit" class="ch-newsletter__btn">Subscribe &rarr;</button>
-    </form>
-    <p style="font-size:12px;color:var(--text-light);text-align:center;margin-top:12px;">
-      No spam. Unsubscribe anytime.
-    </p>
-  </div>
-</section>
 
 @endsection
