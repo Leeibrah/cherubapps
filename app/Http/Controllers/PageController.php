@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormMail;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
@@ -49,11 +51,28 @@ class PageController extends Controller
     }
 
     public function sendContact(\Illuminate\Http\Request $request){
-        $request->validate([
+        // Honeypot: real users leave this blank; bots fill it
+        if (!empty($request->input('hp_fullname'))) {
+            return redirect()->route('contact')->with('success', 'Thank you! We will get back to you within 24 hours.');
+        }
+
+        // Time check: reject submissions faster than 4 seconds (bots are instant)
+        $formTs = (int) $request->input('form_ts', 0);
+        if ($formTs === 0 || (time() - $formTs) < 4) {
+            return redirect()->route('contact')->with('success', 'Thank you! We will get back to you within 24 hours.');
+        }
+
+        $validated = $request->validate([
             'name'    => 'required|string|max:100',
-            'email'   => 'required|email',
+            'email'   => 'required|email|max:255',
+            'company' => 'nullable|string|max:150',
+            'phone'   => 'nullable|string|max:30',
+            'service' => 'nullable|string|max:100',
             'message' => 'required|string|max:2000',
         ]);
+
+        Mail::to('hello@cherubapps.africa')->send(new ContactFormMail($validated));
+
         return redirect()->route('contact')->with('success', 'Thank you! We will get back to you within 24 hours.');
     }
 

@@ -117,9 +117,9 @@
     <!-- RIGHT: Form -->
     <div>
       @if(session('success'))
-        <div style="background:#dcfce7;border:1px solid #86efac;border-radius:6px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
-          <i class="fas fa-check-circle" style="color:#16a34a;font-size:20px;"></i>
-          <p style="font-size:14px;color:#166534;font-weight:600;">{{ session('success') }}</p>
+        <div style="background:#fdf1e9;border:1px solid #fec78a;border-radius:6px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
+          <i class="fas fa-check-circle" style="color:#fe7c02;font-size:20px;"></i>
+          <p style="font-size:14px;color:#924228;font-weight:600;">{{ session('success') }}</p>
         </div>
       @endif
 
@@ -208,14 +208,33 @@
             @error('message')<p style="font-size:12px;color:#dc2626;margin-top:4px;">{{ $message }}</p>@enderror
           </div>
 
-          <button type="submit" class="ch-form__submit">
-            Send Message <i class="fas fa-paper-plane"></i>
+          {{-- Honeypot: invisible to humans, bots fill it automatically --}}
+          <div class="ch-hp-trap" aria-hidden="true">
+            <label for="hp_fullname">Full Name (leave blank)</label>
+            <input type="text" name="hp_fullname" id="hp_fullname" value="" autocomplete="off" tabindex="-1">
+          </div>
+          <input type="hidden" name="form_ts" value="{{ time() }}">
+
+          <button type="submit" class="ch-form__submit" id="contactSubmitBtn">
+            <span class="ch-form__submit-idle">Send Message <i class="fas fa-paper-plane"></i></span>
+            <span class="ch-form__submit-loading" aria-hidden="true">
+              <span class="ch-form__spinner"></span> Sending…
+            </span>
           </button>
           <p class="ch-form__note">
             <i class="fas fa-lock" style="margin-right:4px;"></i>
             Your information is kept confidential and never shared with third parties.
           </p>
         </form>
+
+        <script>
+          document.querySelector('form[action="{{ route('contact.send') }}"]')
+            .addEventListener('submit', function () {
+              var btn = document.getElementById('contactSubmitBtn');
+              btn.disabled = true;
+              btn.classList.add('ch-form__submit--loading');
+            });
+        </script>
       </div>
     </div>
 

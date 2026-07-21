@@ -21,7 +21,7 @@
   <meta name="author" content="Cherub Apps Consult">
   <meta name="robots" content="@yield('seo_robots', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1')">
   <meta name="googlebot" content="index, follow">
-  <meta name="theme-color" content="#0d2c1e">
+  <meta name="theme-color" content="#924228">
 
   {{-- Canonical URL --}}
   <link rel="canonical" href="{{ url()->current() }}">

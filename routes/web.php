@@ -27,7 +27,7 @@ Route::get('/what-we-do', 'PageController@whatWeDo')->name('what-we-do');
 Route::get('/insights', 'PageController@insights')->name('insights');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
-Route::post('/contact', 'PageController@sendContact')->name('contact.send');
+Route::post('/contact', 'PageController@sendContact')->middleware('throttle:6,1')->name('contact.send');
 Route::get('/posts', 'PageController@posts')->name('posts');
 Route::get('/posts/{post}', 'PageController@showPost')->name('posts.view');
 Route::get('/category/{category}', 'PageController@showCategory')->name('categories.view');

@@ -6,8 +6,8 @@
   --green-dark: #924228;
   --green-mid: #7a3520;
   --caribbean: #07d788;
-  --zanah: #CAE7C7;
-  --supernova: #FCCC04;
+  --zanah: #fde8d0;
+  --supernova: #fe7c02;
   --orange: #fe7c02;
   --orange-hover: #924228;
   --text: #111111;
@@ -15,7 +15,7 @@
   --text-light: #888888;
   --border: #e0e0e0;
   --bg: #ffffff;
-  --bg-light: #edf7ed;
+  --bg-light: #fdf1e9;
   --radius: 6px;
   --max-w: 1760px;
   --px: 52px;
@@ -1339,7 +1339,7 @@ img { max-width: 100%; display: block; }
   height: 54px;
   border-radius: 50%;
   background: var(--supernova);
-  color: var(--green-dark);
+  color: #fff;
   font-weight: 800;
   font-size: 17px;
   display: flex;
@@ -1776,12 +1776,39 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   gap: 9px;
 }
-.ch-form__submit:hover { background: var(--green-mid); }
+.ch-form__submit:hover:not(:disabled) { background: var(--green-mid); }
+.ch-form__submit:disabled { opacity: 0.75; cursor: not-allowed; }
+
+.ch-form__submit-loading { display: none; align-items: center; gap: 9px; }
+.ch-form__submit--loading .ch-form__submit-idle { display: none; }
+.ch-form__submit--loading .ch-form__submit-loading { display: flex; }
+
+@keyframes ch-spin { to { transform: rotate(360deg); } }
+.ch-form__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: ch-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
 .ch-form__note {
   text-align: center;
   font-size: 12px;
   color: var(--text-light);
   margin-top: 12px;
+}
+/* Honeypot trap: visually hidden but present in DOM so bots fill it */
+.ch-hp-trap {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* =========================================================
@@ -2345,7 +2372,7 @@ img { max-width: 100%; display: block; }
 /* Accent gradient shimmer on hero heading */
 .ch-hero__heading .accent {
   display: inline-block;
-  background: linear-gradient(110deg, var(--orange) 0%, #d86526 38%, var(--supernova) 65%, var(--orange) 100%);
+  background: linear-gradient(110deg, var(--orange) 0%, #d86526 38%, var(--caribbean) 65%, var(--orange) 100%);
   background-size: 220% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
