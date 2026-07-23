@@ -190,14 +190,15 @@
   <script defer src="{{ asset('front/js/fontawesome/all.min.js') }}"></script>
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKJDC5XZ25"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSLHQ836WK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-CKJDC5XZ25');
+    gtag('config', 'G-LSLHQ836WK');
   </script>
+
 </head>
 <body>
 
