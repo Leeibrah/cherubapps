@@ -85,13 +85,13 @@
         </div>
       </div>
 
-      <div class="ch-contact__info-item">
+      <!-- <div class="ch-contact__info-item">
         <div class="ch-contact__info-icon"><i class="fas fa-map-marker-alt"></i></div>
         <div>
           <p class="ch-contact__info-label">Location</p>
           <p class="ch-contact__info-value">Nairobi, Kenya<br><span style="font-weight:400;font-size:13px;color:var(--text-muted);">Serving clients across Africa</span></p>
         </div>
-      </div>
+      </div> -->
 
       <div class="ch-contact__socials">
         <a href="https://www.linkedin.com/company/cherubapps-consult/" target="_blank" class="ch-social-btn">
