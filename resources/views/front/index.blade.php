@@ -21,6 +21,7 @@
     'Operations' => 66,
   ];
   $cairiLowest = min($cairiScores);
+  $cairiOverall = 84;
 @endphp
 <section class="ch-slider" id="ch-slider" aria-roledescription="carousel" aria-label="Featured">
   <div class="ch-slider__track">
@@ -97,7 +98,7 @@
         </div>
 
         {{-- Sample score card --}}
-        <div class="cairi-card" aria-label="Sample AI readiness report: overall score 66 out of 100">
+        <div class="cairi-card" aria-label="Sample AI readiness report: overall score {{ $cairiOverall }} out of 100">
           <div class="cairi-card__head">
             <h3>AI Readiness Score</h3>
             <span class="cairi-card__pill">Sample report</span>
@@ -107,10 +108,10 @@
             <div class="cairi-ring">
               <svg viewBox="0 0 100 100" aria-hidden="true">
                 <circle class="cairi-ring__track" cx="50" cy="50" r="42" pathLength="100" />
-                <circle class="cairi-ring__val" cx="50" cy="50" r="42" pathLength="100" style="--off: {{ 100 - 66 }}" />
+                <circle class="cairi-ring__val" cx="50" cy="50" r="42" pathLength="100" style="--off: {{ 100 - $cairiOverall }}" />
               </svg>
               <div class="cairi-ring__label">
-                <strong>66</strong>
+                <strong>{{ $cairiOverall }}</strong>
                 <span>out of 100</span>
               </div>
             </div>
@@ -182,17 +183,16 @@
 
   </div>
 
-  <div class="ch-slider__controls">
-    <button class="ch-slider__arrow ch-slider__arrow--prev" type="button" aria-label="Previous slide">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-    <div class="ch-slider__dots" role="tablist" aria-label="Choose slide">
-      <button class="ch-slider__dot is-active" type="button" role="tab" aria-selected="true" aria-label="Slide 1"></button>
-      <button class="ch-slider__dot" type="button" role="tab" aria-selected="false" aria-label="Slide 2"></button>
-    </div>
-    <button class="ch-slider__arrow ch-slider__arrow--next" type="button" aria-label="Next slide">
-      <i class="fas fa-chevron-right"></i>
-    </button>
+  <button class="ch-slider__arrow ch-slider__arrow--prev" type="button" aria-label="Previous slide">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="ch-slider__arrow ch-slider__arrow--next" type="button" aria-label="Next slide">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <div class="ch-slider__dots" role="tablist" aria-label="Choose slide">
+    <button class="ch-slider__dot is-active" type="button" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+    <button class="ch-slider__dot" type="button" role="tab" aria-selected="false" aria-label="Slide 2"></button>
   </div>
 </section>
 
@@ -302,8 +302,8 @@
         <span class="cs-badge">CAIRI Stories</span>
         <h2 class="cs-heading">AI readiness, one story at a time</h2>
         <p class="cs-lead">
-          Follow Amina, Kevin and Mama Njeri as their organizations get ready for AI &mdash; short
-          episodes, under a minute each.
+          Follow Amina, Kevin and Mama Njeri as their organizations get ready for AI &mdash; eight
+          short episodes, about a minute each.
         </p>
       </div>
       <div class="cs-arrows" data-cs-arrows>
@@ -541,7 +541,7 @@
     var slides = slider.querySelectorAll('.ch-slide');
     var dots   = slider.querySelectorAll('.ch-slider__dot');
     var current = 0;
-    var delay = 8000;
+    var delay = 7000;
     var timer = null;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -599,14 +599,22 @@
 
   // CAIRI stories
   (function () {
-    // Edit this list to change the stories. Posters are the title-card frame of each video.
+    // Edit this list to change the stories. `file` is the name (without extension) of both
+    // public/videos/<file>.mp4 and its poster, public/images/stories/<file>.jpg (the title-card frame).
     var STORIES = [
-      { src: @json(asset('videos/cairi-video-1.mp4')), poster: @json(asset('images/stories/cairi-video-1.jpg')), label: 'Intro', title: 'We’re getting AI!', caption: 'Monday, 9:00 AM. Amina makes an announcement — and the team reacts.', duration: '0:37' },
-      { src: @json(asset('videos/cairi-video-2.mp4')), poster: @json(asset('images/stories/cairi-video-2.jpg')), label: 'Episode 1', title: 'Deadline: Friday', caption: '“The board wants our AI plan…” Silence in the boardroom.', duration: '0:47' },
-      { src: @json(asset('videos/cairi-video-3.mp4')), poster: @json(asset('images/stories/cairi-video-3.jpg')), label: 'Episode 2', title: 'No new tool needed', caption: 'Kevin finds AI in software the team already pays for.', duration: '0:52' },
-      { src: @json(asset('videos/cairi-video-4.mp4')), poster: @json(asset('images/stories/cairi-video-4.jpg')), label: 'Episode 3', title: 'Flag the urgent ones', caption: 'Kevin lets AI read every customer complaint and surface what matters.', duration: '0:50' },
-      { src: @json(asset('videos/cairi-video-5.mp4')), poster: @json(asset('images/stories/cairi-video-5.jpg')), label: 'Episode 4', title: 'Mama Njeri’s next step', caption: 'Six years trading mitumba in Gikomba — and a KES 30,000 restock.', duration: '0:57' }
-    ];
+      { file: 'cairi-video-intro',     label: 'Intro',     title: 'We’re getting AI!', caption: 'Monday, 9:00 AM. Amina makes an announcement — and the team reacts.', duration: '0:37' },
+      { file: 'cairi-video-episode-1', label: 'Episode 1', title: 'Deadline: Friday', caption: '“The board wants our AI plan…” Silence in the boardroom.', duration: '0:47' },
+      { file: 'cairi-video-episode-2', label: 'Episode 2', title: 'No new tool needed', caption: 'Kevin finds AI in software the team already pays for.', duration: '0:52' },
+      { file: 'cairi-video-episode-3', label: 'Episode 3', title: 'Flag the urgent ones', caption: 'Kevin lets AI read every customer complaint and surface what matters.', duration: '0:50' },
+      { file: 'cairi-video-episode-4', label: 'Episode 4', title: 'Mama Njeri’s next step', caption: 'Six years trading mitumba in Gikomba — and a KES 30,000 restock.', duration: '0:57' },
+      { file: 'cairi-video-episode-5', label: 'Episode 5', title: 'Who gets the call?', caption: '1,200 overdue loans, 8 agents. AI can say who to call — people decide how.', duration: '0:59' },
+      { file: 'cairi-video-episode-6', label: 'Episode 6', title: 'The blurry ID', caption: 'The AI rejects 1 in 5 rural customers. Brian finds it’s the photos, not the AI.', duration: '0:55' },
+      { file: 'cairi-video-episode-7', label: 'Season finale', title: 'Friday. The board.', caption: 'Six weeks later, Amina faces the board — and her team stands up.', duration: '1:32' }
+    ].map(function (story) {
+      story.src = @json(asset('videos')) + '/' + story.file + '.mp4';
+      story.poster = @json(asset('images/stories')) + '/' + story.file + '.jpg';
+      return story;
+    });
     var track = document.querySelector('[data-cs-track]');
     var modal = document.querySelector('[data-cs-modal]');
     if (!track || !modal) return;

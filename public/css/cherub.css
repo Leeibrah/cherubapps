@@ -2662,20 +2662,21 @@ img { max-width: 100%; display: block; }
 .ch-slide:not(.is-active) .ch-hero__actions { animation: none; }
 
 /* --- Controls -------------------------------------------- */
-.ch-slider__controls {
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
-  z-index: 3;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 14px;
+/* Arrows sit on the left/right edges; slide content is padded by
+   --ch-arrow-gutter so the arrows never cover headings. */
+.ch-slider { --ch-arrow-gutter: 88px; }
+
+.ch-slide.ch-hero .ch-hero__inner {
+  padding-left: max(var(--ch-arrow-gutter), calc((100vw - var(--max-w)) / 2));
 }
 
 .ch-slider__arrow {
-  width: 38px;
-  height: 38px;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2683,13 +2684,21 @@ img { max-width: 100%; display: block; }
   border: 1px solid rgba(6,59,44,0.15);
   background: rgba(255,255,255,0.9);
   color: #063b2c;
-  font-size: 13px;
+  font-size: 15px;
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(6,59,44,0.1);
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 .ch-slider__arrow:hover { background: #063b2c; color: #fff; transform: scale(1.06); }
+.ch-slider__arrow--prev { left: 20px; }
+.ch-slider__arrow--next { right: 20px; }
+
 .ch-slider__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  z-index: 3;
+  transform: translateX(-50%);
   display: flex;
   gap: 8px;
 }
@@ -2736,7 +2745,7 @@ img { max-width: 100%; display: block; }
   position: relative;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 72px max(var(--px), 64px) 84px;
+  padding: 72px max(var(--px), var(--ch-arrow-gutter)) 84px;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
@@ -2977,19 +2986,28 @@ img { max-width: 100%; display: block; }
 
 /* --- Responsive ------------------------------------------ */
 @media (max-width: 1200px) {
+  .ch-slider { --ch-arrow-gutter: 76px; }
+  .ch-slider__arrow { width: 42px; height: 42px; margin-top: -21px; }
+  .ch-slider__arrow--prev { left: 16px; }
+  .ch-slider__arrow--next { right: 16px; }
+
   /* Stacked CAIRI layout is much taller than the photo hero,
      so let each slide size itself instead of sharing a height */
   .ch-slide:not(.is-active) { display: none; }
 
-  .cairi__inner { grid-template-columns: 1fr; gap: 48px; padding: 56px var(--px) 80px; }
+  .cairi__inner { grid-template-columns: 1fr; gap: 48px; padding: 56px var(--ch-arrow-gutter) 80px; }
   .cairi-card { max-width: 680px; }
   .cairi__rings { top: -320px; right: -360px; }
 }
 
 @media (max-width: 768px) {
-  .ch-slider__controls { bottom: 12px; }
+  /* Phones: no room beside the text, so the arrows drop to the bottom corners */
+  .ch-slider { --ch-arrow-gutter: var(--px); }
+  .ch-slider__arrow { top: auto; bottom: 14px; margin-top: 0; width: 38px; height: 38px; }
+  .ch-slider__arrow--prev { left: var(--px); }
+  .ch-slider__arrow--next { right: var(--px); }
+  .ch-slider__dots { bottom: 28px; }
   .ch-slide.ch-hero .ch-hero__inner { padding-bottom: 72px; }
-  .ch-slider__arrow { width: 34px; height: 34px; }
 
   .cairi__inner { padding: 40px var(--px) 64px; gap: 36px; }
   .cairi__brand { margin-bottom: 24px; }
