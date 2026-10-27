@@ -374,5 +374,6 @@
     counters.forEach(function(el) { io2.observe(el); });
   })();
 </script>
+@stack('scripts')
 </body>
 </html>
